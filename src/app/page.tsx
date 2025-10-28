@@ -1,4 +1,4 @@
-'use client'
+'use client' // Trigger Vercel build with corrected imports
 import { useState } from 'react'
 
 export default function Home() {
