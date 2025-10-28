@@ -55,9 +55,10 @@ export default function Home() {
 
       setQrUrl(qrDataUrl)
       alert(`QR Code enviado com sucesso para ${email}!`)
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Erro:', error)
-      alert('Erro ao gerar QR Code: ' + error.message)
+      const errorMessage = error instanceof Error ? error.message : 'Erro desconhecido'
+      alert('Erro ao gerar QR Code: ' + errorMessage)
     }
     setLoading(false)
   }
