@@ -3,14 +3,14 @@ import QRCode from 'qrcode'
 import { Resend } from 'resend'
 import { NextRequest, NextResponse } from 'next/server'
 
-const supabase = createClient(
-  process.env.SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!  // Service role para server
-)
-
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 export async function POST(request: NextRequest) {
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  )
+
+  const resend = new Resend(process.env.RESEND_API_KEY)
+
   try {
     const { email } = await request.json()
 
